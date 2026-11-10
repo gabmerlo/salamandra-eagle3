@@ -4,7 +4,7 @@ I trained a small EAGLE-3 draft for Salamandra-7B in about an hour on one H100, 
 
 Salamandra-7B-Instruct-2606 is an LLM developed by the Barcelona Supercomputing Center (BSC), with special attention to Spanish, Catalan, Basque and Galician, four languages from the Iberian Peninsula.
 
-For this experiment, I generated my own training dataset using prompts from ALIA-2606-SFT and regenerating the answers with Salamandra itself. I ended up with 19,010 conversations (30,973 assistant turns) and trained the draft for 3 epochs on a single H100 80GB, taking around 23 minutes per epoch.
+For this experiment, I generated my own training dataset using prompts from ALIA-2606-SFT and regenerating the answers with Salamandra itself. I ended up with 19010 conversations (30973 assistant turns) and trained the draft for 3 epochs on a single H100 80GB, taking around 23 minutes per epoch.
 
 <p align="center">
   <img src="graphs/mean_iberian_speedup.png" width="450" alt="Iberian Peninsula Languages Speedup">
@@ -13,7 +13,7 @@ For this experiment, I generated my own training dataset using prompts from ALIA
 
 ## Data
 
-To be able to use EAGLE-3 I need a dataset with questions I can use to generate with salamandra-7b some answers for my training data. In my case, since I'm interested in checking how EAGLE-3 accelerates Salamandra in languages from the iberian peninsula like Catalan, Basque and Galician and Spanish, I used another resource from the BSC, in this case the ALIA-2606-SFT dataset:
+To train an EAGLE-3 draft I need prompts that Salamandra can answer, so the draft learns from its real outputs. And since I'm interested in Spanish, Catalan, Basque and Galician, I used another resource from the BSC, the ALIA-2606-SFT dataset:
 https://huggingface.co/datasets/BSC-LT/ALIA-2606-SFT
 
 In this dataset's card we can find a language field which I've used to filter the questions I want.
@@ -31,8 +31,6 @@ Some things failed on the way and I left them commented in the notebook, for exa
 In the validation of the last epoch the draft gets right the 1st, 2nd and 3rd proposed token in a row 66%, 44% and 30% of the time.
 
 Checkpoints are on Hugging Face: https://huggingface.co/gabmerlo/salamandra-7b-eagle3-alia
-
-## Results
 
 ## Results
 
